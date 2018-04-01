@@ -48,3 +48,34 @@
 
  // initial list of actor buttons
  renderButtons();
+
+ 
+
+//function to search for specific actors
+// function search(search) {
+
+//queryURL for GIPHY API
+var queryURL = "http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=IyEaDgyNgkp3IdZCuR9Slk9YEe5bPM98";
+// + search;
+
+ //communication with GIPHY servers to get gifs on the page
+ $.ajax({
+  url: queryURL,
+  method: "GET"
+}).then(function (response) {
+
+ console.log(response);
+
+ //each gif is dynamically created as an html img tag and added to first part of page
+ response.data.forEach(function(giphy) {
+   $("#gifs").append(
+     `<img src="${giphy.images.original.url}" />`
+   )
+ })
+})
+
+// }
+
+
+ //search for specific actors
+//  search();
