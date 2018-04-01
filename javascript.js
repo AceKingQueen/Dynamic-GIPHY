@@ -52,11 +52,10 @@
  
 
 //function to search for specific actors
-// function search(search) {
+var searchGIF = function(name) {
 
 //queryURL for GIPHY API
-var queryURL = "http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=IyEaDgyNgkp3IdZCuR9Slk9YEe5bPM98";
-// + search;
+var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + name + "&rating=g&limit=10&api_key=IyEaDgyNgkp3IdZCuR9Slk9YEe5bPM98";
 
  //communication with GIPHY servers to get gifs on the page
  $.ajax({
@@ -74,8 +73,20 @@ var queryURL = "http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=IyEaDgyN
  })
 })
 
-// }
+}
 
 
- //search for specific actors
-//  search();
+
+// chain for fixed images
+// `<img src="${response.data["0"].images.fixed_height_still.url}" />`
+
+//function to search for actors listed in actors array
+$("#actors-view").on("click", function(e) {
+
+var actorSearch = $("#actors-input")
+
+//invoke search function
+searchGIF(actorSearch);
+
+})
+
