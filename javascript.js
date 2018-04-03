@@ -7,7 +7,7 @@
   "Lupita Nyong'o",
   "Katniss Everdeen",
   "Forrest Gump",
-  "James Bond",
+  "Denzel Washington",
   "Thelma & Louise",
  ];
 
@@ -56,6 +56,7 @@ var searchGIF = function(name) {
 $("#gifs").empty();
 
 var name = $(this).attr("data-val")
+
 //queryURL for GIPHY API
 var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + name + "&rating=g&limit=10&api_key=IyEaDgyNgkp3IdZCuR9Slk9YEe5bPM98";
 
@@ -65,25 +66,31 @@ url: queryURL,
 method: "GET"
 }).then(function (response) {
 
-console.log(response);
+
+var results = response.data;
+
+console.log(response.data);
 
 
 //each gif is dynamically created as an html img tag and added to first part of page
 response.data.forEach(function(giphy) {
-$("#gifs").append(
-  `<img src="${giphy.images.original.url}" />`
+
+//each gif still image is diplayed with it's nested rating  
+$("#gifs").prepend(
+  `
+  <img src="${giphy.images.original.url}" />
+  <img src="${giphy.images.fixed_height_still.url}" />
+  <h3>Rating: ${giphy.rating}</h3>
+  `
 )
 })
 })
-;
+
 }
-
-
-
-// chain for fixed images
-// `<img src="${response.data["0"].images.fixed_height_still.url}" />`
 
 //when clicking on each button, gifs appear
 $("#actors-view").on("click",".gif", searchGIF)
+
+//When clicking on each gif, it plays. Clicking again pauses it.
 
 
