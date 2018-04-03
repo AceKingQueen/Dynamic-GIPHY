@@ -55,7 +55,7 @@ var searchGIF = function(name) {
 
 $("#gifs").empty();
 
-var name = $(this).attr("data-val")
+var name = $(this).attr("data-val");
 
 //queryURL for GIPHY API
 var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + name + "&rating=g&limit=10&api_key=IyEaDgyNgkp3IdZCuR9Slk9YEe5bPM98";
@@ -67,7 +67,6 @@ method: "GET"
 }).then(function (response) {
 
 
-var results = response.data;
 
 console.log(response.data);
 
@@ -78,19 +77,44 @@ response.data.forEach(function(giphy) {
 //each gif still image is diplayed with it's nested rating  
 $("#gifs").prepend(
   `
-  <img src="${giphy.images.original.url}" />
   <img src="${giphy.images.fixed_height_still.url}" />
   <h3>Rating: ${giphy.rating}</h3>
   `
 )
+
+
+
+
+
+
 })
 })
 
 }
 
-//when clicking on each button, gifs appear
-$("#actors-view").on("click",".gif", searchGIF)
+
 
 //When clicking on each gif, it plays. Clicking again pauses it.
+$("#gifs").on("click", function(pic) {
+
+  alert("You clicked me")
+
+  // var still = $(this);
+
+  // var moving = $(this).append(
+  //   `<img src="${pic.images.original.url}" />
+  //     `
+  // )
+
+  // $("gifs").text("show this");
+      
+  
+  })
 
 
+
+/* <img src="${giphy.images.original.url}" /> */
+
+
+//when clicking on each button, gifs appear
+$("#actors-view").on("click",".gif", searchGIF)
