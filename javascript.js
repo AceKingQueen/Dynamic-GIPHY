@@ -89,14 +89,14 @@ $("#gifs").prepend(
 }
 
 
-//When clicking on each gif, it plays. Clicking again pauses it.
+//When clicking on each still gif, it plays. Clicking again pauses it.
 $("#gifs").on("click", function() {
 
-  alert("See my code - I'm trying to get these to work")
+  // alert("See my code - I'm trying to get these to work")
 
  let state = $(this).attr("data-state");
 
- if (state === "still") {
+ if (state === "data-still") {
    $(this).attr("src", $(this).attr("data-animate"));
    $(this).attr("data-state", "animate");
  } else {
@@ -105,10 +105,6 @@ $("#gifs").on("click", function() {
  }
   
   })
-
-
-
-/* <img src="${giphy.images.original.url}" /> */
 
 
 //when clicking on each button, gifs appear
