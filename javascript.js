@@ -92,28 +92,19 @@ $("#gifs").prepend(
 //When clicking on each gif, it plays. Clicking again pauses it.
 $("#gifs").on("click", function() {
 
-// $(this).show("data-animate").hide("data-still");
+  alert("See my code - I'm trying to get these to work")
 
-  alert("ow!");
-})
+ let state = $(this).attr("data-state");
 
-
-
-// $("#gifs").on("click", function(pic) {
-
-//   // alert("You clicked me")
-
-//  let state = $(this).attr("data-state", "still");
-
-//  if (state === "still") {
-//    $(this).attr("src", $(this).attr("data-animate"));
-//    $(this).attr("data-state", "animate");
-//  } else {
-//   $(this).attr("src", $(this).attr("data-still"));
-//   $(this).attr("data-state", "still");
-//  }
+ if (state === "still") {
+   $(this).attr("src", $(this).attr("data-animate"));
+   $(this).attr("data-state", "animate");
+ } else {
+  $(this).attr("src", $(this).attr("data-still"));
+  $(this).attr("data-state", "still");
+ }
   
-//   })
+  })
 
 
 
