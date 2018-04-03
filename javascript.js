@@ -1,14 +1,14 @@
  // Initial array of actors
  var actors = [ 
-  "Jennifer Aniston",
-  "Chadwick Boseman",
+  "Harry Potter",
+  "Indiana Jones",
   "Meryl Streep", 
   "Brad Pitt", 
   "Lupita Nyong'o",
-  "Will Smith",
+  "Katniss Everdeen",
   "Forrest Gump",
-  "Al Pacino",
-  "Elizabeth Taylor",
+  "James Bond",
+  "Thelma & Louise",
  ];
 
 // Function to make buttons for each actor
@@ -83,8 +83,7 @@ $("#gifs").append(
 // chain for fixed images
 // `<img src="${response.data["0"].images.fixed_height_still.url}" />`
 
-//function to search for actors listed in actors array
+//when clicking on each button, gifs appear
 $("#actors-view").on("click",".gif", searchGIF)
 
 
-//invoke search fun
