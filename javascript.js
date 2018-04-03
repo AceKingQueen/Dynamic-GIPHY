@@ -67,25 +67,21 @@ method: "GET"
 }).then(function (response) {
 
 
-
 console.log(response.data);
 
 
 //each gif is dynamically created as an html img tag and added to first part of page
 response.data.forEach(function(giphy) {
 
-//each gif still image is diplayed with it's nested rating  
+//each gif  image is diplayed with it's nested rating & given a data-still and a data-animate class 
 $("#gifs").prepend(
   `
-  <img src="${giphy.images.fixed_height_still.url}" />
+  <img src="${giphy.images.fixed_height_still.url}"
+       data-still="${giphy.images.fixed_height_still.url}"
+       data-animate="${giphy.images.fixed_height.url}" />
   <h3>Rating: ${giphy.rating}</h3>
   `
 )
-
-
-
-
-
 
 })
 })
@@ -93,23 +89,31 @@ $("#gifs").prepend(
 }
 
 
-
 //When clicking on each gif, it plays. Clicking again pauses it.
-$("#gifs").on("click", function(pic) {
+$("#gifs").on("click", function() {
 
-  alert("You clicked me")
+// $(this).show("data-animate").hide("data-still");
 
-  // var still = $(this);
+  alert("ow!");
+})
 
-  // var moving = $(this).append(
-  //   `<img src="${pic.images.original.url}" />
-  //     `
-  // )
 
-  // $("gifs").text("show this");
-      
+
+// $("#gifs").on("click", function(pic) {
+
+//   // alert("You clicked me")
+
+//  let state = $(this).attr("data-state", "still");
+
+//  if (state === "still") {
+//    $(this).attr("src", $(this).attr("data-animate"));
+//    $(this).attr("data-state", "animate");
+//  } else {
+//   $(this).attr("src", $(this).attr("data-still"));
+//   $(this).attr("data-state", "still");
+//  }
   
-  })
+//   })
 
 
 
