@@ -76,9 +76,11 @@ response.data.forEach(function(giphy) {
 //each gif  image is diplayed with it's nested rating & given a data-still and a data-animate class 
 $("#gifs").prepend(
   `
-  <img src="${giphy.images.fixed_height_still.url}"
-       data-still="${giphy.images.fixed_height_still.url}"
-       data-animate="${giphy.images.fixed_height.url}" />
+  <img class="dynamic"
+  src="${giphy.images.fixed_height_still.url}"
+  data-still="${giphy.images.fixed_height_still.url}"
+  data-animate="${giphy.images.fixed_height.url}"
+  data-state="still"
   <h3>Rating: ${giphy.rating}</h3>
   `
 )
@@ -90,13 +92,11 @@ $("#gifs").prepend(
 
 
 //When clicking on each still gif, it plays. Clicking again pauses it.
-$("#gifs").on("click", function() {
-
-  // alert("See my code - I'm trying to get these to work")
+$(document).on("click", ".dynamic", function() {
 
  let state = $(this).attr("data-state");
 
- if (state === "data-still") {
+ if (state === "still") {
    $(this).attr("src", $(this).attr("data-animate"));
    $(this).attr("data-state", "animate");
  } else {
