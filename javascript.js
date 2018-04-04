@@ -11,13 +11,13 @@
   "Thelma & Louise",
  ];
 
-// Function to make buttons for each actor
+// Function makes a button for each actor.
 function renderButtons() {
 
-// Delete the content inside the actors-view div prior to adding new actors
+// Delete the content inside the actors-view 'div' prior to adding new actors.
 $("#actors-view").empty();
 
-// Loop through the array of actors, then generate buttons for each actor in the array
+// Loop through the array of actors then generate buttons for each actor in the array.
 actors.forEach(function(actor) {
   $("#actors-view").append(
     `<button class="gif" data-val=${actor}>${actor}</button>`
@@ -25,32 +25,32 @@ actors.forEach(function(actor) {
 })
 }
 
-// Function to add the new actor to the array and display
+// Function adds the new actor to the array before displaying it. 
 $("#add-actors").on("click", function(event) {
 
- //prevents submit button from trying to send a form, user can hit "enter" on keyboard or click with mouse
+ //Prevents the submit button from trying to send a form, instead the user can hit "enter" on keyboard or click with mouse 
 event.preventDefault();
 
-// grab whatever text user types
+// Get the text the user types and...
 var formValue = $('#actors-input').val().trim();
 
 $('#actors-input').val("");
 
-// add it to the array
+// ...add it to the array
 if (!(actors.indexOf(formValue) > -1)) {
   actors.push(formValue);
 }
 
-// updated display of buttons
+// Updated display of buttons
 renderButtons();
 });
 
-// initial list of actor buttons
+// Initial list of actor buttons
 renderButtons();
 
 
 
-//function to search for specific actors
+//Function searches for specific actors.
 var searchGIF = function(name) {
 
 $("#gifs").empty();
@@ -60,7 +60,7 @@ var name = $(this).attr("data-val");
 //queryURL for GIPHY API
 var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + name + "&rating=g&limit=10&api_key=IyEaDgyNgkp3IdZCuR9Slk9YEe5bPM98";
 
-//communication with GIPHY servers to get gifs on the page
+//Communicate with GIPHY servers to get gifs on the page.
 $.ajax({
 url: queryURL,
 method: "GET"
@@ -70,10 +70,10 @@ method: "GET"
 console.log(response.data);
 
 
-//each gif is dynamically created as an html img tag and added to first part of page
+//Each gif is dynamically created as an html 'img' tag and added to first part of page.
 response.data.forEach(function(giphy) {
 
-//each gif  image is diplayed with it's nested rating & given a data-still and a data-animate class 
+//Each gif image is diplayed with its' nested rating, & given a data-still and a data-animate class.
 $("#gifs").prepend(
   `
   <img class="dynamic"
@@ -90,8 +90,7 @@ $("#gifs").prepend(
 
 }
 
-
-//When clicking on each still gif, it plays. Clicking again pauses it.
+//Still gifs will play on click. A second click will pause the gif. 
 $(document).on("click", ".dynamic", function() {
 
  let state = $(this).attr("data-state");
@@ -106,6 +105,5 @@ $(document).on("click", ".dynamic", function() {
   
   })
 
-
-//when clicking on each button, gifs appear
+//different gifs will appear on the click of each button.
 $("#actors-view").on("click",".gif", searchGIF)
