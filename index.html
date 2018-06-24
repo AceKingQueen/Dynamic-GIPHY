@@ -5,30 +5,7 @@
   <meta charset="utf-8">
   <title>Hollywood GIFs</title>
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-  <style type="text/css">
-    button,
-    div,
-    form,
-    input {
-      margin: 10px;
-      font-family: 'Raleway', sans-serif;
-
-    }
-
-    button, form, input {
-        font-size: 18px;
-    }
-    body {
-        background-color: lightblue;
-    }
-
-    #add-actors {
-        color: black;
-        background-color: lightsalmon;
-        border-radius: 6px;
-    }
-
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -37,10 +14,14 @@
     <h1>Hollywood GIF Search</h1>
 
     <!-- Actors will get dumped here -->
-    <div id="actors-view"></div>
+    <div class="chosen-actors"><h3>Click on an Actor, Movie Title, or Character below to generate 10 GIFs</h3>
+      <div id="actors-view"></div>
+
+
+    </div>
 
     <form id="actors-form">
-      <label for="actors-input">Add an Actor, Movie Title, or Character</label>
+      <label for="actors-input" id="add-label"><h3>Add an Actor, Movie Title, or Character</label></h3>
       <input type="text" id="actors-input" name="actors-input">
       <br>
 

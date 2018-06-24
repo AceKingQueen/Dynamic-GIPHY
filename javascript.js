@@ -49,7 +49,6 @@ renderButtons();
 renderButtons();
 
 
-
 //function to search for specific actors
 var searchGIF = function(name) {
 

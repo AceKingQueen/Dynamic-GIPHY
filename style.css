@@ -1,0 +1,38 @@
+body {
+    background-image: url("hollywood.jpg");
+    background-repeat: no-repeat;
+    background-size: 1100px 900px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Raleway', sans-serif;
+
+}
+
+button,
+div,
+form,
+input {
+    margin: 10px;
+}
+
+button, form, input {
+        font-size: 18px;
+}
+
+.chosen-actors {
+    background-color: aliceblue;
+    width: 50%;
+    padding: 2%;
+}
+
+form {
+    background-color: palevioletred;
+    width: 50%;
+    padding: 2%;
+}
+
+#add-actors {
+    color: black;
+    background-color: greenyellow;
+}
+
