@@ -5,4 +5,4 @@ To see it in action, click on the "Meryl Streep" button. You will see 10 Meryl S
 
 You can can also create a new button with a new actor, movie title, or movie character of your choosing. Type your choice in and add it using the button. Then click on your newly-generated button and voila! 
 
-[Visit the Hollywood GIF-maker](
+[Visit the Hollywood GIF-maker](https://acekingqueen.github.io/Hollywood-GIF-maker/)
