@@ -48,8 +48,6 @@ renderButtons();
 // Initial list of actor buttons
 renderButtons();
 
-
-
 //Function searches for specific actors.
 var searchGIF = function(name) {
 
